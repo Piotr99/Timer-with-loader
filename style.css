@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://i.picsum.photos/id/485/2560/1080.jpg?hmac=G_5lpDKGOQiINLRWYL6-_EEut79i3dyEpH5ic4KpH3I");
+    width: 100%;
+    background-size: cover;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 1.2rem;
+}
+
+.time {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+
+.time div {
+    border-radius: 10px;
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: center;
+    color: #555;
+    background-color: rgba(10, 10, 10, 0.1);
+    padding: 1.5rem;
+    text-transform: capitalize;
+}
+
+div>span:nth-child(1),
+h1 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+form input {
+    display: none;
+}
+
+form button {
+    border: none;
+    padding: 15px 30px;
+    font-size: 2rem;
+
+}
+
+.bg-spinner {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.70);
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.spinner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: rotate(0deg) translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    border-top-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    background-color: rgba(57, 133, 9, 0.813);
+    transform-origin: 0 0;
+    background-origin: border-box;
+    animation: rotation 1s ease-in-out infinite;
+}
+
+
+
+@media (min-width:550px) {
+    body {
+        font-size: 1.5rem;
+    }
+
+    .time div {
+        flex-basis: 40%;
+    }
+}
+
+@media (min-width:1200px) {
+    .time {
+        flex-wrap: nowrap;
+    }
+
+    .time div {
+        width: 200px;
+    }
+}
+
+@keyframes rotation {
+
+    to {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
