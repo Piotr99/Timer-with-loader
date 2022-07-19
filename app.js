@@ -1,4 +1,5 @@
 import { months, days, endOfTime_Y, endOfTime_A } from "./time.js"
+import { moveEl } from "./backgroundMove.js"
 
 const monthEl = document.querySelector(".times.month")
 const dayEl = document.querySelector(".times.day")
@@ -10,6 +11,7 @@ let hourText;
 let minuteText;
 let secondText;
 let isLoad = false;
+
 
 const dateToName = (date, currentDate) => {
     return date[currentDate]
@@ -73,5 +75,5 @@ const getCurrentDate = () => {
     isLoad = true
 }
 
+document.body.addEventListener("mousemove", moveEl)
 getCurrentDate()
-
