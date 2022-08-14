@@ -57,7 +57,7 @@ const getCurrentDate = () => {
         secondText = document.querySelector(".seconds > span")
         let currentMonth = data.getMonth()
         currentMonth = dateToName(months, currentMonth)
-        let currentDay = data.getDay() - 1
+        let currentDay = data.getDay() == 0 ? data.getDay() + 6 : data.getDay()
         currentDay = dateToName(days, currentDay)
         let currentHour = data.getHours() < 10 ? "0" + data.getHours() : data.getHours();
         hourText.textContent = "godzin" + nameEditing(Number(currentHour))
