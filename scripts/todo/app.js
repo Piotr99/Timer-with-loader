@@ -4,6 +4,7 @@ export const timeContainer = document.querySelector("section.time");
 const todoAddBtn = document.querySelector(".todo__btn");
 const timerElements = document.querySelectorAll(".time div");
 const input = document.createElement('input');
+let iconRemoveAll;
 const removeEl = (e, args) => {
     e.target.parentElement.removeChild(e.target)
     if (args) {
@@ -67,7 +68,7 @@ const addToDoBase = () => {
     const list = document.createElement("ul");
     addTaskBtn.textContent = "add your task";
     addTaskBtn.type = "submit"
-    const iconRemoveAll = document.createElement("span");
+    iconRemoveAll = document.createElement("span");
     input.type = "text"
     input.placeholder = "Add or search your task"
     document.body.appendChild(form);
