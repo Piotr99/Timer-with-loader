@@ -25,6 +25,7 @@ function removeTasks(e) {
     }
 }
 
+
 const removeParentElement = (e) => {
     let elToRemove = e.target.parentElement.children[0].textContent
     e.target.parentElement.remove()
@@ -104,6 +105,8 @@ const addToDoBase = () => {
     }
 
     function render(text) {
+        const h1 = document.querySelector("h1")
+        h1 ? h1.remove() : ""
         const icon = document.createElement("span");
         const listEl = document.createElement("li");
         const item = document.createElement("span");
