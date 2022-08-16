@@ -53,12 +53,10 @@ const createInputsToNavForm = (nav, form) => {
 }
 
 export const removeNav = () => {
-    if (document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) { document.querySelector(".user__navigation").display = "none"; }
-    else {
-        document.querySelector(".user__navigation").display = "flex";
+    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) && (document.body.clientWidth < 1200)) { document.querySelector(".user__navigation").style.display = "none"; } else {
+        document.querySelector(".user__navigation").style.display = "flex";
     }
 }
-
 const toggleBoxNav = (nav, container) => {
     let div;
     nav.addEventListener("click", (e) => {
@@ -69,7 +67,6 @@ const toggleBoxNav = (nav, container) => {
             const form = document.createElement("form");
             div.appendChild(form)
             createInputsToNavForm(nav, form)
-
         }
         else {
             e.target.parentElement.querySelector(".box").remove()
@@ -85,7 +82,6 @@ const toggleBoxNav = (nav, container) => {
         }
     })
 }
-
 
 export const navigation = () => {
     const nav = document.createElement("nav");
