@@ -52,6 +52,9 @@ const createInputsToNavForm = (nav, form) => {
     info.appendChild(text)
 }
 
+export const removeNav = () => {
+    if (document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) document.querySelector(".user__navigation").remove()
+}
 
 const toggleBoxNav = (nav, container) => {
     let div;
