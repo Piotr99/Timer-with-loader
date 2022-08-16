@@ -54,19 +54,17 @@ const createInputsToNavForm = (nav, form) => {
 
 export const removeNav = () => {
     const input = document.querySelector("input")
-    const toggleMobileBoxNav = (e) => {
-        if (e.target == input) {
-            document.querySelector(".user__navigation").style.display = "none";
-        } else {
-            document.querySelector(".user__navigation").style.display = "flex";
-        }
-    }
 
     if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) && (document.body.clientWidth < 1200)) {
         document.querySelector(".user__navigation").style.display = "none";
     } else {
         if (document.body.clientWidth < 1200) {
-            document.body.addEventListener('touchstart', toggleMobileBoxNav)
+            input.addEventListener('focus', () => {
+                document.querySelector(".user__navigation").style.display = "none";
+            })
+            input.addEventListener('blur', () => {
+                document.querySelector(".user__navigation").style.display = "flex";
+            })
         }
         document.querySelector(".user__navigation").style.display = "flex";
     }
