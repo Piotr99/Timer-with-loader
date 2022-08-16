@@ -53,7 +53,10 @@ const createInputsToNavForm = (nav, form) => {
 }
 
 export const removeNav = () => {
-    if (document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) document.querySelector(".user__navigation").remove()
+    if (document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) { document.querySelector(".user__navigation").display = "none"; }
+    else {
+        document.querySelector(".user__navigation").display = "flex";
+    }
 }
 
 const toggleBoxNav = (nav, container) => {
