@@ -55,7 +55,7 @@ const createInputsToNavForm = (nav, form) => {
 export const removeNav = () => {
     const input = document.querySelector("input")
 
-    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 4) && (document.body.clientWidth < 1200)) {
+    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight) && (document.body.clientWidth < 1200)) {
         document.querySelector(".user__navigation").style.display = "none";
     } else {
         if (document.body.clientWidth < 1200) {
