@@ -59,11 +59,16 @@ export const removeNav = () => {
         document.querySelector(".user__navigation").style.display = "none";
     } else {
         if (document.body.clientWidth < 1200) {
-            input.addEventListener('focus', () => {
+                input.addEventListener('focus', () => {
                 document.querySelector(".user__navigation").style.display = "none";
             })
-                input.addEventListener('blur', () => {
+                input.addEventListener('input', () => {
                 document.querySelector(".user__navigation").style.display = "none";
+            })
+
+                input.addEventListener('blur', () => {
+                if(!document.querySelector(".time.tasks").clientHeight > document.body.clientHeight)
+                document.querySelector(".user__navigation").style.display = "flex";
             })
         }
         document.querySelector(".user__navigation").style.display = "flex";
