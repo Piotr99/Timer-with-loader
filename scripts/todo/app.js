@@ -108,8 +108,6 @@ const addToDoBase = () => {
     }
 
     function render(text) {
-        const h1 = document.querySelector("h1")
-        h1 ? h1.remove() : ""
         const icon = document.createElement("span");
         const listEl = document.createElement("li");
         const item = document.createElement("span");
