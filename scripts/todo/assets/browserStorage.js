@@ -1,25 +1,25 @@
 import { timeContainer } from "../app.js"
 let tasks = []
-const addToSS = (text) => {
+const addToLS = (text) => {
     tasks.push(text)
-    sessionStorage.setItem("tasks", JSON.stringify(tasks))
+    localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
-const removeSessionStorage = (elementToChange) => {
+const removeLocalStorage = (elementToChange) => {
     tasks.splice(tasks.indexOf(elementToChange), 1)
-    sessionStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-const getFromSessionStorage = () => {
-    if (sessionStorage.getItem("tasks")) {
-        JSON.parse(sessionStorage.getItem("tasks")).forEach((task) => {
+const getFromLocalStorage = () => {
+    if (localStorage.getItem("tasks")) {
+        JSON.parse(localStorage.getItem("tasks")).forEach((task) => {
             const item = document.createElement("span");
             const list = document.querySelector("ul");
 
             const icon = document.createElement("span");
             const listEl = document.createElement("li");
             item.className = "item"
-            addToSS(task)
+            addToLS(task)
             item.textContent = task
             // icon.className = "fa fa-trash"
 
@@ -37,7 +37,7 @@ const getFromSessionStorage = () => {
 
 
 export default {
-    addToSS,
-    removeSessionStorage,
-    getFromSessionStorage
+    addToLS,
+    removeLocalStorage,
+    getFromLocalStorage
 }
