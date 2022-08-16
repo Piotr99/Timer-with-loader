@@ -55,7 +55,7 @@ const createInputsToNavForm = (nav, form) => {
 export const removeNav = () => {
     const input = document.querySelector("input")
 
-    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight/6) && (document.body.clientWidth < 1200)) {
+    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight/8) && (document.body.clientWidth < 1200)) {
         document.querySelector(".user__navigation").style.display = "none";
     } else {
         if (document.body.clientWidth < 1200) {
@@ -65,10 +65,7 @@ export const removeNav = () => {
                 input.addEventListener('input', () => {
                 document.querySelector(".user__navigation").style.display = "none";
             })
-                input.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                document.querySelector(".user__navigation").style.display = "none";
-            })
+
             input.addEventListener('blur', () => {
                 if(!document.querySelector(".time.tasks").clientHeight > document.body.clientHeight)
                 document.querySelector(".user__navigation").style.display = "flex";
