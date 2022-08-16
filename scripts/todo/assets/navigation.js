@@ -65,7 +65,8 @@ export const removeNav = () => {
                 input.addEventListener('input', () => {
                 document.querySelector(".user__navigation").style.display = "none";
             })
-                input.addEventListener('submit', () => {
+                input.addEventListener('submit', (e) => {
+                    e.preventDefault();
                 document.querySelector(".user__navigation").style.display = "none";
             })
             input.addEventListener('blur', () => {
