@@ -53,10 +53,25 @@ const createInputsToNavForm = (nav, form) => {
 }
 
 export const removeNav = () => {
-    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) && (document.body.clientWidth < 1200)) { document.querySelector(".user__navigation").style.display = "none"; } else {
+    const input = document.querySelector("input")
+    const toggleMobileBoxNav = (e) => {
+        if (e.target == input) {
+            document.querySelector(".user__navigation").style.display = "none";
+        } else {
+            document.querySelector(".user__navigation").style.display = "flex";
+        }
+    }
+
+    if ((document.querySelector(".time.tasks").clientHeight > document.body.clientHeight / 2) && (document.body.clientWidth < 1200)) {
+        document.querySelector(".user__navigation").style.display = "none";
+    } else {
+        if (document.body.clientWidth < 1200) {
+            document.body.addEventListener('click', toggleMobileBoxNav)
+        }
         document.querySelector(".user__navigation").style.display = "flex";
     }
 }
+
 const toggleBoxNav = (nav, container) => {
     let div;
     nav.addEventListener("click", (e) => {
