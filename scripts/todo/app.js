@@ -5,6 +5,7 @@ export const timeContainer = document.querySelector("section.time");
 const todoAddBtn = document.querySelector(".todo__btn");
 const timerElements = document.querySelectorAll(".time div");
 const input = document.createElement('input');
+let iconRemoveAll;
 const removeEl = (e, args) => {
     e.target.parentElement.removeChild(e.target)
     if (args) {
@@ -23,19 +24,20 @@ function removeTasks(e) {
         defaultValues()
         this.remove()
     }
-        removeNav()
-
+    removeNav()
 }
-
 
 const removeParentElement = (e) => {
     let elToRemove = e.target.parentElement.children[0].textContent
     e.target.parentElement.remove()
     storage.removeSessionStorage(elToRemove)
     let todoElements = [...document.querySelectorAll("li span.item")]
+    removeNav()
+
     if (!todoElements.length) {
         defaultValues()
         iconRemoveAll.remove()
+
         if (JSON.parse(sessionStorage.getItem("tasks")))
             sessionStorage.clear("tasks")
     }
@@ -58,7 +60,6 @@ const validate = () => {
     return todoElements = todoElements.map(todoEl => todoEl.textContent)
 }
 
-
 const addToDoBase = () => {
     navigation()
     const h1 = document.querySelector("h1")
@@ -71,7 +72,7 @@ const addToDoBase = () => {
     const list = document.createElement("ul");
     addTaskBtn.textContent = "add your task";
     addTaskBtn.type = "submit"
-    const iconRemoveAll = document.createElement("span");
+    iconRemoveAll = document.createElement("span");
     input.type = "text"
     input.placeholder = "Add or search your task"
     document.body.appendChild(form);
