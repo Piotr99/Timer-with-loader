@@ -1,5 +1,6 @@
 import storage from "./assets/browserStorage.js";
 import { navigation } from "./assets/navigation.js";
+import { removeNav } from "./assets/navigation.js";
 export const timeContainer = document.querySelector("section.time");
 const todoAddBtn = document.querySelector(".todo__btn");
 const timerElements = document.querySelectorAll(".time div");
@@ -22,6 +23,8 @@ function removeTasks(e) {
         defaultValues()
         this.remove()
     }
+        removeNav()
+
 }
 
 
@@ -78,6 +81,7 @@ const addToDoBase = () => {
     timeContainer.appendChild(list)
     timeContainer.classList.add("tasks")
     storage.getFromSessionStorage()
+    removeNav()
 
     let filter;
     const searchTask = () => {
@@ -137,6 +141,8 @@ const addToDoBase = () => {
                 input.placeholder = "task added!"
                 input.value = ""
                 render(text)
+                removeNav()
+
                 storage.addToSS(text)
                 input.addEventListener("input", () => {
                     let todoElements = [...document.querySelectorAll("li span.item")]
