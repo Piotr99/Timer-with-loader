@@ -67,7 +67,6 @@ export const removeNav = () => {
             })
 
                 input.addEventListener('blur', () => {
-                if(!document.querySelector(".time.tasks").clientHeight > document.body.clientHeight)
                 document.querySelector(".user__navigation").style.display = "flex";
             })
         }
