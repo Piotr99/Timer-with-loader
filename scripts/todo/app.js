@@ -19,8 +19,8 @@ function removeTasks(e) {
     let todoElements = [...document.querySelectorAll("li span.item")]
     if (todoElements.length) {
         todoElements.forEach(el => el.parentElement.remove())
-        if (JSON.parse(sessionStorage.getItem("tasks")))
-            sessionStorage.clear("tasks")
+        if (JSON.parse(localStorage.getItem("tasks")))
+            localStorage.clear("tasks")
         defaultValues()
         this.remove()
     }
@@ -30,7 +30,7 @@ function removeTasks(e) {
 const removeParentElement = (e) => {
     let elToRemove = e.target.parentElement.children[0].textContent
     e.target.parentElement.remove()
-    storage.removeSessionStorage(elToRemove)
+    storage.removeLocalStorage(elToRemove)
     let todoElements = [...document.querySelectorAll("li span.item")]
     removeNav()
 
@@ -38,8 +38,8 @@ const removeParentElement = (e) => {
         defaultValues()
         iconRemoveAll.remove()
 
-        if (JSON.parse(sessionStorage.getItem("tasks")))
-            sessionStorage.clear("tasks")
+        if (JSON.parse(LocalStorage.getItem("tasks")))
+            localStorage.clear("tasks")
     }
 }
 
@@ -81,7 +81,7 @@ const addToDoBase = () => {
     buttonsTodoBodyContainer.appendChild(addTaskBtn);
     timeContainer.appendChild(list)
     timeContainer.classList.add("tasks")
-    storage.getFromSessionStorage()
+    storage.getFromLocalStorage()
     removeNav()
 
     let filter;
@@ -142,7 +142,7 @@ const addToDoBase = () => {
                 render(text)
                 removeNav()
 
-                storage.addToSS(text)
+                storage.addToLS(text)
                 input.addEventListener("input", () => {
                     let todoElements = [...document.querySelectorAll("li span.item")]
                     todoElements.forEach(el => el.parentElement.classList.remove("searched"))
