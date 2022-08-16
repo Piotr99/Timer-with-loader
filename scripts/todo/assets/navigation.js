@@ -66,7 +66,7 @@ export const removeNav = () => {
         document.querySelector(".user__navigation").style.display = "none";
     } else {
         if (document.body.clientWidth < 1200) {
-            document.body.addEventListener('click', toggleMobileBoxNav)
+            document.body.addEventListener('touchstart', toggleMobileBoxNav)
         }
         document.querySelector(".user__navigation").style.display = "flex";
     }
